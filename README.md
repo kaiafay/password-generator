@@ -15,4 +15,4 @@ https://kaiafay.github.io/password-generator/
 
 ## Mock Up
 
-![mock up of password generator](https://courses.bootcampspot.com/courses/1120/files/1251393/preview)
+![mock up of password generator](./assets/images/mock-up.png)
