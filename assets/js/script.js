@@ -1,24 +1,8 @@
 // array of characters
-var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-var UpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var UpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
-
-// function that writes the password
-var writePassword = function () {
-  generatePassword();
-
-};
-
-// function that generates password
-var generatePassword = function () {
-  // call all criteria functions
-  passwordLength();
-  passwordLowercase();
-  passwordUppercase();
-  passwordNumeric();
-  passwordSpecial();
-};
 
 var passwordLength = function() {
   // prompt for password length
@@ -65,6 +49,25 @@ var passwordSpecial = function() {
   return specialPrompt;
 };
 
+// function that generates password
+var generatePassword = function () {
+  // storing criteria values
+  var length = passwordLength();
+  var lowerOption = passwordLowercase();
+  var upperOption = passwordUppercase();
+  var numericOption = passwordNumeric();
+  var specialOption = passwordSpecial();
+
+  // array for possible characters
+  var possibleChar = [];
+  
+  // array for resulting characters
+  var result = [];
+
+  // for loop for password length of possible characters
+  // random function that generates index based on criteria
+  // use at least one character of each included in criteria
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
