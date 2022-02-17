@@ -6,6 +6,7 @@ var writePassword = function () {
 
 // function that generates password
 var generatePassword = function () {
+  // call all criteria functions
   passwordLength();
   passwordLowercase();
   passwordUppercase();
@@ -25,50 +26,22 @@ var passwordLength = function() {
 
 var passwordLowercase = function() {
   // lowercase character criteria
-  var lowercasePrompt = window.prompt("Would you like to include lowercase characters? Please type 'yes' or 'no'.");
-  // make input lowercase to validate 
-  lowercasePrompt = lowercasePrompt.toLowerCase();
-
-  if (lowercasePrompt !== 'yes' && lowercasePrompt !== 'no') {
-    window.alert("You must choose 'yes' or 'no'.");
-    return passwordLowercase();
-  };
+  var lowercasePrompt = window.confirm("Would you like to include lowercase characters? Please press 'OK' for yes or 'Cancel' for no.");
 };
 
 var passwordUppercase = function() {
   // uppercase character criteria
-  var uppercasePrompt = window.prompt("Would you like to include uppercase characters? Please type 'yes or 'no'.");
-  // make input lowercase to validate
-  uppercasePrompt = uppercasePrompt.toLowerCase();
-
-  if (uppercasePrompt !== 'yes' && uppercasePrompt !== 'no') {
-    window.alert("You must choose 'yes' or 'no'.");
-    return passwordUppercase();
-  };
+  var uppercasePrompt = window.confirm("Would you like to include uppercase characters? Please press 'OK' for yes or 'Cancel' for no.");
 };
 
 var passwordNumeric = function() {
   // numeric character criteria
-  var numericPrompt = window.prompt("Would you like to include numeric characters? Please type 'yes' or 'no'.");
-  // make input lowercase to validate
-  numericPrompt = numericPrompt.toLowerCase();
-
-  if (numericPrompt !== 'yes' && numericPrompt !== 'no') {
-    window.alert("You must choose 'yes' or 'no'.");
-    return passwordNumeric();
-  };
+  var numericPrompt = window.confirm("Would you like to include numeric characters? Please press 'OK' for yes or 'Cancel' for no.");
 };
 
 var passwordSpecial = function() {
   // special character criteria
-  var specialPrompt = window.prompt("Would you like to include special characters? Please type 'yes' or 'no'.");
-  // make input lowercase to validate
-  specialPrompt = specialPrompt.toLowerCase();
-
-  if (specialPrompt !== 'yes' && specialPrompt !== 'no') {
-    window.alert("You must choose 'yes' or 'no'.");
-    return passwordSpecial();
-  };
+  var specialPrompt = window.confirm("Would you like to include special characters? Please press 'OK' for yes or 'Cancel' for no.");
 };
 
 
