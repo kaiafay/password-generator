@@ -10,8 +10,11 @@ var passwordLength = function() {
   // validate the number input
     if (lengthPrompt < 8 || lengthPrompt > 128) {
       window.alert("You must pick a number between 8 and 128.");
+      return passwordLength(); 
+    } else if (isNaN(lengthPrompt)) {
+      window.alert("Invalid input! Please pick a number.");
       return passwordLength();
-  };
+    };
 
   // return password length
   return lengthPrompt;
