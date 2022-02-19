@@ -4,7 +4,7 @@ var UpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
-var length
+var length;
 
 // array for possible characters
 var possibleChar = [];
@@ -78,21 +78,20 @@ var generatePassword = function () {
 
   // run functions
   length = passwordLength();
-  console.log("original length is:" + length);
   passwordLowercase();
   passwordUppercase();
   passwordNumeric();
   passwordSpecial();
-
-  console.log(possibleChar);
-  console.log(result);
-  console.log("modified length is:" + length);
-
-
+ 
+  console.log(length)
+  console.log(possibleChar)
   // for loop for password length of possible characters
-  for (let i=0; i < length; i++) {
-    
+  for (let i=0; i < length -1; i++) {
+    var randomSpot = possibleChar[i].length
+    result.push(possibleChar[i][Math.floor(Math.random() * randomSpot)]);
   }
+
+  return result;
 };
 
 // Get references to the #generate element
@@ -101,6 +100,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  password = password.join("");
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
