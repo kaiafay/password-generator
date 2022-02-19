@@ -4,8 +4,13 @@ var UpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
+var length
+
 // array for possible characters
 var possibleChar = [];
+
+// array for resulting characters
+var result = [];
 
 var passwordLength = function() {
   // prompt for password length
@@ -29,6 +34,8 @@ var passwordLowercase = function() {
   
   if (lowercasePrompt === true) {
     possibleChar.push(lowerCase);
+    result.push(lowerCase[Math.floor(Math.random() * 26)]);
+    length-=1;
   }
 };
 
@@ -38,6 +45,8 @@ var passwordUppercase = function() {
 
   if (uppercasePrompt === true) {
     possibleChar.push(UpperCase);
+    result.push(UpperCase[Math.floor(Math.random() * 26)]);
+    length-=1;
   }
 };
 
@@ -47,6 +56,8 @@ var passwordNumeric = function() {
 
   if (numericPrompt === true) {
     possibleChar.push(numbers);
+    result.push(numbers[Math.floor(Math.random() * 11)]);
+    length-=1;
   }
 };
 
@@ -55,8 +66,10 @@ var passwordSpecial = function() {
   var specialPrompt = window.confirm("Would you like to include special characters? Please press 'OK' for yes or 'Cancel' for no.");
   
   if (specialPrompt === true) {
-    console.log("we want specials");
     possibleChar.push(specialChar);
+    var specialCharLength = specialChar.length + 1;
+    result.push(specialChar[Math.floor(Math.random() * specialCharLength)]);
+    length-=1;
   }
 };
 
@@ -64,24 +77,22 @@ var passwordSpecial = function() {
 var generatePassword = function () {
 
   // run functions
-  var length = passwordLength();
+  length = passwordLength();
+  console.log("original length is:" + length);
   passwordLowercase();
   passwordUppercase();
   passwordNumeric();
   passwordSpecial();
 
-  console.log(possibleChar)
-  console.log(length);
-  
-  // array for resulting characters
-  var result = [];
+  console.log(possibleChar);
+  console.log(result);
+  console.log("modified length is:" + length);
+
 
   // for loop for password length of possible characters
-  for (let i=0; i < passwordLength; i++) {
+  for (let i=0; i < length; i++) {
     
   }
-  // random function that generates index based on criteria
-  // use at least one character of each included in criteria
 };
 
 // Get references to the #generate element
