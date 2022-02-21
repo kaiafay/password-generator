@@ -4,8 +4,6 @@ var UpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
-var length;
-
 // array for possible characters
 var possibleChar = [];
 
@@ -25,6 +23,7 @@ var passwordLength = function() {
       return passwordLength();
     };
 
+  // return user's value
   return lengthPrompt;
 };
 
@@ -32,59 +31,56 @@ var passwordLowercase = function() {
   // lowercase character criteria
   var lowercasePrompt = window.confirm("Would you like to include lowercase characters? Please press 'OK' for yes or 'Cancel' for no.");
   
-  if (lowercasePrompt === true) {
-    possibleChar.push(lowerCase);
-    result.push(lowerCase[Math.floor(Math.random() * 26)]);
-    length-=1;
-  }
+  // returns user's value
+  return lowercasePrompt;
 };
 
 var passwordUppercase = function() {
   // uppercase character criteria
   var uppercasePrompt = window.confirm("Would you like to include uppercase characters? Please press 'OK' for yes or 'Cancel' for no.");
 
-  if (uppercasePrompt === true) {
-    possibleChar.push(UpperCase);
-    result.push(UpperCase[Math.floor(Math.random() * 26)]);
-    length-=1;
-  }
+  // returns user's value
+  return uppercasePrompt;
 };
 
 var passwordNumeric = function() {
   // numeric character criteria
   var numericPrompt = window.confirm("Would you like to include numeric characters? Please press 'OK' for yes or 'Cancel' for no.");
 
-  if (numericPrompt === true) {
-    possibleChar.push(numbers);
-    result.push(numbers[Math.floor(Math.random() * 11)]);
-    length-=1;
-  }
+  // returns user's value
+  return numericPrompt;
 };
 
 var passwordSpecial = function() {
   // special character criteria
   var specialPrompt = window.confirm("Would you like to include special characters? Please press 'OK' for yes or 'Cancel' for no.");
   
-  if (specialPrompt === true) {
-    possibleChar.push(specialChar);
-    var specialCharLength = specialChar.length + 1;
-    result.push(specialChar[Math.floor(Math.random() * specialCharLength)]);
-    length-=1;
-  }
+  // returns user's value
+  return specialPrompt;
 };
+
+// checks if user doesn't include any character types 
+// if (passwordLowercase === false && passwordUppercase === false && passwordNumeric === false && passwordSpecial === false) {
+//   alert("You must select at least one character type!");
+//   return generatePassword();
+// }
 
 // function that generates password
 var generatePassword = function () {
 
-  // run functions
-  length = passwordLength();
-  passwordLowercase();
-  passwordUppercase();
-  passwordNumeric();
-  passwordSpecial();
+  // runs prompts
+  var passLength = passwordLength();
+  var includeLower = passwordLowercase();
+  var includeUpper = passwordUppercase();
+  var includeNumeric = passwordNumeric();
+  var includeSpecial = passwordSpecial();
+
+  // checks if user doesn't include any character types 
+if (includeLower === false && includeUpper === false && includeNumeric === false && includeSpecial === false) {
+  alert("You must select at least one character type!");
+  return generatePassword();
+}
  
-  console.log(length)
-  console.log(possibleChar)
   // for loop for password length of possible characters
   for (let i=0; i < length -1; i++) {
     var randomSpot = possibleChar[i].length
