@@ -101,8 +101,6 @@ var generatePassword = function () {
     requiredChar.push(randomize(specialChar));
   }
 
-  console.log(requiredChar);
-
   // for loop that picks characters from possible characters array
   for (let i=0; i < options.length; i++) {
     // randomly picks a character from the possible characters array
