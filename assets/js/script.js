@@ -34,7 +34,7 @@ var prompts = function() {
   // checks if user doesn't include any character types 
   if (passwordLowercase === false && passwordUppercase === false && passwordNumeric === false && passwordSpecial === false) {
     alert("You must select at least one character type!");
-    return generatePassword();
+    return prompts();
   };
 
   // object to store user's answers
@@ -100,8 +100,6 @@ var generatePassword = function () {
     // pushes random special character to required characters array
     requiredChar.push(randomize(specialChar));
   }
-
-  console.log(requiredChar);
 
   // for loop that picks characters from possible characters array
   for (let i=0; i < options.length; i++) {
